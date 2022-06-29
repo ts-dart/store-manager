@@ -4,7 +4,7 @@ const app = express();
 
 // não remova esse endpoint, é para o avaliador funcionar
 app.get('/', (_request, response) => {
-  response.send();
+  response.send('Abrindo pr');
 });
 
 // não remova essa exportação, é para o avaliador funcionar
