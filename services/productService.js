@@ -13,6 +13,9 @@ const getById = async (id) => {
 };
 
 const postProduct = async (name) => {
+  if (!name) return 400;
+  if (name.length < 5) return 422;
+  
   const product = await PoductModel.postProduct(name);
   return product;
 };

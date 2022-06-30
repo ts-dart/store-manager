@@ -17,6 +17,11 @@ const postProduct = async (req, res) => {
   const { name } = req.body;
   const product = await ProductService.postProduct(name);
 
+  if (product === 422) { 
+    return res.status(422).send({ message: '"name" length must be at least 5 characters long' });
+  }
+
+  if (product === 400) return res.status(400).send({ message: '"name" is required' });
   return res.status(201).send(product);
 };
 
