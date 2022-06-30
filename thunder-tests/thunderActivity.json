@@ -26,5 +26,68 @@
     "headers": [],
     "params": [],
     "tests": []
+  },
+  {
+    "_id": "4daf53b5-6038-4d93-92d3-08a61d7b80da",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:3000/products",
+    "url": "localhost:3000/products",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2022-06-29T23:55:03.435Z",
+    "modified": "2022-06-30T00:35:21.482Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"name\": \"leite em pó\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "a45697b1-d3d5-4ef2-803d-cbf6277c10bc",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:3000/products?test=testando",
+    "url": "localhost:3000/products?test=testando",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2022-06-30T00:02:54.232Z",
+    "modified": "2022-06-30T00:02:54.336Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "test",
+        "value": "testando",
+        "isPath": false
+      }
+    ],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"name\": \"leitinho\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "fea5bac1-1419-4392-9b82-8705cf1f90ab",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:3000/products/4",
+    "url": "localhost:3000/products/4",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2022-06-30T00:03:59.186Z",
+    "modified": "2022-06-30T00:05:01.068Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"name\": \"leitinho\"\n}",
+      "form": []
+    },
+    "tests": []
   }
 ]

@@ -13,7 +13,15 @@ const getById = async (req, res) => {
   return res.status(200).send(product);
 };
 
+const postProduct = async (req, res) => {
+  const { name } = req.body;
+  const product = await ProductService.postProduct(name);
+
+  return res.status(201).send(product);
+};
+
 module.exports = {
   getAll,
   getById,
+  postProduct,
 };
