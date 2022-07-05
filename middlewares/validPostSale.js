@@ -12,10 +12,9 @@ module.exports = async (sales, model) => {
       valid: false, status: 422, msg: { message: '"quantity" must be greater than or equal to 1' },
     };
   }
-  console.log(await isValidProductId(sales));
   if (await isValidProductId(sales)) {
     return { valid: false, status: 404, msg: { message: 'Product not found' } };
   }
-  console.log(await isValidProductId(sales));
+
   return { valid: true, status: null, msg: null };
 };
