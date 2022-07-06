@@ -33,6 +33,43 @@ const postSale = async (args) => {
   return { isValidProductId };
 };
 
+const getSales = async () => { 
+  const [data] = await dbSales.query(
+    `select * from StoreManager.sales as s 
+    inner join StoreManager.sales_products as sp on s.id = sp.sale_id`,
+  );
+  
+  return data.map(({ date, id, product_id: pi, quantity, sale_id: si }) => {
+    const obj = { date, id, productId: pi, quantity, saleId: si };
+    return obj;
+  });
+};
+
+const getSaleById = async (args) => { 
+  const getById = async ({ id }) => { 
+    const [data] = await dbSales.query(
+      `select date, product_id, quantity from StoreManager.sales_products as sp 
+      inner join StoreManager.sales as s on sp.sale_id = ?
+      group by s.date, sp.product_id, sp.quantity
+      order by product_id asc`, [id],
+      );
+    
+    return data.map(({ date, product_id: pi, quantity }) => ({ date, productId: pi, quantity }));
+  };
+
+  if (args) return getById(args);
+
+  const validSale = async ({ id }) => { 
+    const [data] = await dbSales
+      .query('select * from StoreManager.sales where id = ?', [id]);
+    
+    if (data.length < 1) return true;
+  };
+  return { validSale };
+};
+
 module.exports = {
   postSale,
+  getSales,
+  getSaleById,
 };
