@@ -62,6 +62,7 @@ const getSaleById = async (args) => {
   const validSale = async ({ id }) => { 
     const [data] = await dbSales.query('select * from StoreManager.sales where id = ?', [id]);
     if (data.length < 1) return true;
+    return false;
   };
   return { validSale };
 };

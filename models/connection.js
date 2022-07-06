@@ -11,6 +11,6 @@ const db = mysql.createPool({
   host: 'localhost',
   user: 'thiago',
   password: 'minhasenhaA1$',
-}); */
-
+});
+ */
 module.exports = db;
