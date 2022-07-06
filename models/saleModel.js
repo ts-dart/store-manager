@@ -30,7 +30,7 @@ const postSale = async (args) => {
 
   if (args) return post(args);
   const isValidProductId = (sales) => validationProductId(sales).then((data) => data);
-  return isValidProductId;
+  return { isValidProductId };
 };
 
 module.exports = {

@@ -28,12 +28,12 @@ describe('postSale', async () => {
       dbSales.query.restore();
     });
     it('busca pelo campo "productId" no db e não o encontra', async () => {
-      const data = await SaleModel.postSale(false);
-      chai.expect(await data([{ productId: null }, { productId: null }])).to.be.equal(true);
+      const { isValidProductId } = await SaleModel.postSale(false);
+      chai.expect(await isValidProductId([{ productId: null }, { productId: null }])).to.be.equal(true);
     });
     it('busca pelo campo "productId" no db e o encontra', async () => {
-      const data = await SaleModel.postSale(false);
-      chai.expect(await data([{ productId: 1 }, { productId: null }])).to.be.equal(true);
+      const { isValidProductId } = await SaleModel.postSale(false);
+      chai.expect(await isValidProductId([{ productId: 1 }, { productId: null }])).to.be.equal(true);
     });
   });
 });
